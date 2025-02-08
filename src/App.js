@@ -4,7 +4,7 @@ import API_BASE_URL from "./config";
 function App() {
     const loadSavedTemplates = () => {
         return JSON.parse(localStorage.getItem("savedTemplates")) || [
-            { subject: "Application for Web Developer Intern", body: "Dear Sir/Ma'am, \n\n I am writing to express my interest in the position of web developer intern as advertised recently. My qualifications, skills, and experience align closely with your requirements for this role. \n\n Please find my CV and supporting documents attached for your review. I would be delighted to discuss how I can contribute to your team and look forward to hearing from you soon about this exciting opportunity. \n\nBest Regards, \n\nHappy Yadav,\n\n8299007827\n\nhappy.yadav.contact@gmail.com" },
+            { subject: "Application for Web Developer Intern", body: "Dear Sir/Ma'am, \n\n I am writing to express my interest in the position of web developer intern as advertised recently. My qualifications, skills, and experience align closely with your requirements for this role. \n\n Please find my CV and supporting documents attached for your review. I would be delighted to discuss how I can contribute to your team and look forward to hearing from you soon about this exciting opportunity. \n\nBest Regards, \nHappy Yadav\n8299007827\nhappy.yadav.contact@gmail.com" },
         ];
     };
 
