@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
+import API_BASE_URL from "./config";
 
 function App() {
-    // Load saved templates from LocalStorage (or use a default list)
     const loadSavedTemplates = () => {
         return JSON.parse(localStorage.getItem("savedTemplates")) || [
-            { subject: "Meeting Reminder", body: "Dear Team, \n\nThis is a reminder for our meeting tomorrow.\n\nBest Regards." },
-            { subject: "Payment Due", body: "Hello, \n\nYour payment is due. Please clear the balance as soon as possible.\n\nThanks." }
+            { subject: "Application for Web Developer Intern", body: "Dear Sir/Ma'am, \n\n I am writing to express my interest in the position of web developer intern as advertised recently. My qualifications, skills, and experience align closely with your requirements for this role. \n\n Please find my CV and supporting documents attached for your review. I would be delighted to discuss how I can contribute to your team and look forward to hearing from you soon about this exciting opportunity. \n\nBest Regards, \n\nHappy Yadav,\n\n8299007827\n\nhappy.yadav.contact@gmail.com" },
         ];
     };
 
@@ -13,7 +12,6 @@ function App() {
     const [savedTemplates, setSavedTemplates] = useState(loadSavedTemplates);
     const [newTemplate, setNewTemplate] = useState({ subject: "", body: "" });
 
-    // Save templates in LocalStorage whenever they update
     useEffect(() => {
         localStorage.setItem("savedTemplates", JSON.stringify(savedTemplates));
     }, [savedTemplates]);
@@ -48,7 +46,7 @@ function App() {
     // Send email function
     const sendEmail = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/v1/send-email", {
+            const response = await fetch(`${API_BASE_URL}/send-email`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formdata)
